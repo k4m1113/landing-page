@@ -1,0 +1,28 @@
+<div class="project">
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="/screenshots/<%= project.screenshot %>.jpg" class="screenshot" />
+    </div>
+    <div class="col-sm-9">
+      <h4 class="project-header">
+        <a href="<%= project.deployment %>" target="_blank" title="view deployed site">
+          <%= project.name %> (<%= project.project_type %>)
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+        </a>
+        <a href="<%= project.url %>" target="_blank" title="view code on github">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+      </h4>
+      <h6>
+        <%= project.when.strftime("%B %Y") %>
+      </h6>
+      <p>
+        <%= project.description %>
+        <br />
+        <% project.keywords.each do |tag| %>
+          <button class="tag" type="button" disabled><%= tag %></button>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
