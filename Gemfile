@@ -19,6 +19,8 @@ gem 'bootstrap',  '~> 4.0.0.alpha6'
 gem 'autoprefixer-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'font-awesome-rails'
+gem 'rest-client'
+gem 'twitter'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -55,6 +57,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

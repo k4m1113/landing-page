@@ -1,1 +1,20 @@
-ALL WRITING
+<div class="grid">
+  <% @all.each do |item| %>
+    <% case item %>
+    <% when Gram %>
+      <%= render 'gram', image: item %>
+    <% when Post %>
+      <%= render 'post', post: item %>
+    <% when Tweet %>
+      <%= render 'tweet', tweet: item %>
+    <% end %>
+  <% end %>
+</div>
+<script>
+var $grid = $('.grid').masonry({
+  itemSelector: '.grid-item'
+});
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry('layout');
+});
+</script>

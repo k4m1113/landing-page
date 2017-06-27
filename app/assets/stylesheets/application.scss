@@ -23,12 +23,62 @@ $light-pink: #8E2A67;
 $dark-pink: #512A8E;
 $dark-light-pink: darken($light-pink, 10%);
 $dark-light-green: darken($light-green, 30%);
+$light-light-green: lighten($light-green, 10%);
 
 nav {
   height: 60px;
   color: darken($dark-green, 50%);
   font-size: 30px;
-  background-color: $light-green !important;
+  background-color: $light-light-green !important;
+}
+
+.grid-item {
+  width: calc(33%);
+  border: 0px;
+  border-radius: 5px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+.card {
+  border: 0px;
+  border-radius: 5px;
+}
+
+.card-img-overlay {
+  opacity: 0;
+  transition: .5s ease;
+  vertical-align: text-bottom;
+  p.card-text {
+    font-size: 14px;
+    color: white !important;
+  }
+  .text-muted {
+    color: white !important;
+    opacity: 0.8;
+  }
+}
+
+.post .card-img-overlay {
+  background-color: $dark-green
+}
+.gram .card-img-overlay {
+  background-color: $dark-pink;
+}
+.tweet .card-img-overlay {
+  background-color: $light-pink;
+}
+
+.post:hover .card-img-overlay {
+  opacity: 0.9;
+}
+.gram:hover .card-img-overlay {
+  opacity: 0.9;
+}
+.tweet:hover .card-img-overlay {
+  opacity: 0.9;
 }
 
 body {
@@ -40,8 +90,9 @@ body {
 br.paragraph{
   height: 20px;
 }
+
 .about-image {
-  border-radius: 15px;
+  border-radius: 15px 15px 0px 0px;
   max-width: 100%;
   max-height: 100%;
 }
@@ -69,13 +120,14 @@ img.navbar-brand {
 img.screenshot {
   width: inherit;
 }
-div.project {
+div.project, .about {
   margin: 0px auto;
   font-size: 20px;
-  padding: 20px 10px;
-  &:hover {
-    background-color: lighten($light-green, 10%);
-  }
+  padding: 10px;
+  background-color: $light-light-green;
+}
+.about {
+  border-radius: 20px 20px 0px 0px;
 }
 
 .project-header {

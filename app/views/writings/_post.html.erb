@@ -1,0 +1,21 @@
+<div class="grid-item">
+  <a href="<%= post.url %>" target="_blank">
+
+    <div class="card card-inverse post">
+      <img class="card-img" src="/blogger.png" />
+      <div class="card-img-overlay">
+        <h4 class="card-title">
+          <%= post.title %>
+        </h4>
+        <p class="card-text">
+          <%= post.text %>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">
+            <%= Time.at(post.id).strftime('%A, %d %B %Y')%>
+          </small>
+        </p>
+      </div>
+    </div>
+  </a>
+</div>

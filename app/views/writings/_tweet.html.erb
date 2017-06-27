@@ -1,0 +1,17 @@
+<div class="grid-item">
+  <a href="<%= tweet.url %>" target="_blank">
+    <div class="card card-inverse tweet">
+      <img class="card-img" src="/twitter.png" />
+        <div class="card-img-overlay">
+          <p class="card-text">
+            <%= tweet.text %>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">
+              <%= Time.at(tweet.id).strftime('%A, %d %B %Y')%>
+            </small>
+          </p>
+      </div>
+    </div>
+  </a>
+</div>
