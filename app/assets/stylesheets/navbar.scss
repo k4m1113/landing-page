@@ -1,0 +1,28 @@
+@import 'constants';
+
+nav {
+  height: 60px;
+  color: darken($dark-green, 50%);
+  font-size: 30px;
+  background-color: $light-light-green !important;
+}
+
+.nav-icon {
+  color: $dark-light-pink;
+  font-size: 36px;
+  &:hover {
+    color: $dark-pink;
+  }
+  &:focus {
+    color: $dark-pink;
+  }
+}
+
+.justify-content-end {
+  margin-top: 8px;
+}
+
+img.navbar-brand {
+  max-width: 30px;
+  margin-left: 8px;
+}

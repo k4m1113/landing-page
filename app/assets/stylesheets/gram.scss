@@ -1,0 +1,9 @@
+@import 'constants';
+
+.gram .card-img-overlay {
+  background-color: $dark-pink;
+}
+
+.gram:hover .card-img-overlay {
+  opacity: 0.9;
+}

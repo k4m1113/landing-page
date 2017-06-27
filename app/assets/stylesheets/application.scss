@@ -13,73 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@import 'constants';
 @import 'bootstrap';
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Arvo|Cardo|Libre+Baskerville|Spectral');
-
-$light-green: #678E2A;
-$dark-green: #2A8E51;
-$light-pink: #8E2A67;
-$dark-pink: #512A8E;
-$dark-light-pink: darken($light-pink, 10%);
-$dark-light-green: darken($light-green, 30%);
-$light-light-green: lighten($light-green, 10%);
-
-nav {
-  height: 60px;
-  color: darken($dark-green, 50%);
-  font-size: 30px;
-  background-color: $light-light-green !important;
-}
-
-.grid-item {
-  width: calc(33%);
-  border: 0px;
-  border-radius: 5px;
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-}
-.card {
-  border: 0px;
-  border-radius: 5px;
-}
-
-.card-img-overlay {
-  opacity: 0;
-  transition: .5s ease;
-  vertical-align: text-bottom;
-  p.card-text {
-    font-size: 14px;
-    color: white !important;
-  }
-  .text-muted {
-    color: white !important;
-    opacity: 0.8;
-  }
-}
-
-.post .card-img-overlay {
-  background-color: $dark-green
-}
-.gram .card-img-overlay {
-  background-color: $dark-pink;
-}
-.tweet .card-img-overlay {
-  background-color: $light-pink;
-}
-
-.post:hover .card-img-overlay {
-  opacity: 0.9;
-}
-.gram:hover .card-img-overlay {
-  opacity: 0.9;
-}
-.tweet:hover .card-img-overlay {
-  opacity: 0.9;
-}
 
 body {
   font-family: 'Arvo', serif;
@@ -87,75 +24,6 @@ body {
   background-color: $light-green;
 }
 
-br.paragraph{
-  height: 20px;
-}
-
-.about-image {
-  border-radius: 15px 15px 0px 0px;
-  max-width: 100%;
-  max-height: 100%;
-}
-.about {
-  p {
-    color: $dark-light-green;
-    font-size: 20px;
-  }
-  a {
-    text-decoration: none;
-    color: $dark-light-green;
-    &:hover {
-      text-decoration: none;
-      color: $dark-pink;
-    }
-  }
-}
-.justify-content-end {
-  margin-top: 8px;
-}
-img.navbar-brand {
-  max-width: 30px;
-  margin-left: 8px;
-}
-img.screenshot {
-  width: inherit;
-}
-div.project, .about {
-  margin: 0px auto;
-  font-size: 20px;
-  padding: 10px;
-  background-color: $light-light-green;
-}
-.about {
-  border-radius: 20px 20px 0px 0px;
-}
-
-.project-header {
-  text-decoration: none;
-  font-size: 30px;
-  a {
-    color: $dark-light-pink;
-    &:hover {
-      text-decoration: none;
-      color: $dark-pink;
-    }
-    &:focus {
-      text-decoration: none;
-      color: $dark-pink;
-    }
-  }
-}
-
-.nav-icon {
-  color: $dark-light-pink;
-  font-size: 36px;
-  &:hover {
-    color: $dark-pink;
-  }
-  &:focus {
-    color: $dark-pink;
-  }
-}
 li.nav-icon {
   @extend .nav-item;
   padding: 0px 8px;

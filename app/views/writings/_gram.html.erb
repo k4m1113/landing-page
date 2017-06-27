@@ -5,7 +5,8 @@
       <img class="card-img" src="<%= image.src %>" />
       <div class="card-img-overlay">
         <p class="card-text">
-          <%= image.caption %>
+          <%= image.caption.first(400) %>
+          <%= "..." if image.caption.length > 400 %>
         </p>
         <p class="card-text">
           <small class="text-muted">

@@ -1,0 +1,27 @@
+@import 'constants';
+
+.about {
+  border-radius: 20px 20px 0px 0px;
+  p {
+    color: $dark-light-green;
+    font-size: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: $dark-light-green;
+    &:hover {
+      text-decoration: none;
+      color: $dark-pink;
+    }
+  }
+}
+
+br.paragraph{
+  height: 20px;
+}
+
+.about-image {
+  border-radius: 15px 15px 0px 0px;
+  max-width: 100%;
+  max-height: 100%;
+}

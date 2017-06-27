@@ -1,0 +1,9 @@
+@import 'constants';
+
+.tweet .card-img-overlay {
+  background-color: $light-pink;
+}
+
+.tweet:hover .card-img-overlay {
+  opacity: 0.9;
+}

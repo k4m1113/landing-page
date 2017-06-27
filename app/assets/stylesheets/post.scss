@@ -1,0 +1,9 @@
+@import 'constants';
+
+.post .card-img-overlay {
+  background-color: $dark-green
+}
+
+.post:hover .card-img-overlay {
+  opacity: 0.9;
+}

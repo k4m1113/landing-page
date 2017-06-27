@@ -1,0 +1,28 @@
+@import 'constants';
+
+div.project, .about {
+  margin: 0px auto;
+  font-size: 20px;
+  padding: 10px;
+  background-color: $light-light-green;
+}
+
+img.screenshot {
+  width: inherit;
+}
+
+.project-header {
+  text-decoration: none;
+  font-size: 30px;
+  a {
+    color: $dark-light-pink;
+    &:hover {
+      text-decoration: none;
+      color: $dark-pink;
+    }
+    &:focus {
+      text-decoration: none;
+      color: $dark-pink;
+    }
+  }
+}

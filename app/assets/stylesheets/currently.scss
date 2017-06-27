@@ -1,0 +1,28 @@
+.grid-item {
+  width: calc(33.3%);
+  border: 0px;
+  border-radius: 5px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+.card {
+  border: 0px !important;
+  border-radius: 5px;
+}
+
+.card-img-overlay {
+  opacity: 0;
+  transition: .5s ease;
+  vertical-align: text-bottom;
+  p.card-text {
+    font-size: 14px;
+    color: white !important;
+  }
+  .text-muted {
+    color: white !important;
+    opacity: 0.8;
+  }
+}
