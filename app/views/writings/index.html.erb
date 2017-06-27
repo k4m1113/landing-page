@@ -11,10 +11,9 @@
   <% end %>
 </div>
 <script>
-var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item'
-});
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry('layout');
-});
+setTimeout( function() {
+  var $grid = $('.grid').masonry({
+    itemSelector: '.grid-item'
+  });
+}, 100);
 </script>

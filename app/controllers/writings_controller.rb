@@ -9,7 +9,7 @@ class WritingsController < ApplicationController
     blogger = RestClient.get 'https://www.googleapis.com/blogger/v3/blogs/5529945907031995637/posts', { params: {
       key: ENV['BLOGGER_API_KEY'],
       fetchBodies: true,
-      maxPosts: 15 } }
+      maxPosts: 20 } }
     # serialize blogger posts
     blogger = JSON.parse(blogger)
     blogger['items'].each do |hash|
@@ -24,7 +24,7 @@ class WritingsController < ApplicationController
     # instagram api call to kamillamagna feed
     insta = RestClient.get 'https://api.instagram.com/v1/users/self/media/recent', { params: {
       access_token: ENV['INSTAGRAM_ACCESS_TOKEN'],
-      count: 15 } }
+      count: 20 } }
     insta = JSON.parse(insta)
     # serialize instagram posts
     insta['data'].each do |hash|
@@ -51,6 +51,6 @@ class WritingsController < ApplicationController
     end
 
     # concatenated blogger, insta, and twitter (tbi) posts, sorted by date created
-    @all = all.sort_by!(&:id).reverse!.first(15)
+    @all = all.sort_by!(&:id).reverse!.first(20)
   end
 end
