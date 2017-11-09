@@ -1,27 +1,31 @@
 @import 'constants';
 
 .about {
-  border-radius: 20px 20px 0px 0px;
+  padding: 0px;
+  font-size: 36px;
   p {
     color: $dark-light-green;
-    font-size: 20px;
+    min-height: 100px;
+    background: rgba(142,42,103,0.3);
+    margin-bottom: 0px;
+    padding: 20px 80px;
+    text-align: center;
+    &:first-of-type {
+      font-size: 48px;
+      background: rgba(103,142,42,0.5);
+      height: 500px;
+    }
   }
   a {
     text-decoration: none;
-    color: $dark-light-green;
+    color: $dark-pink;
     &:hover {
       text-decoration: none;
-      color: $dark-pink;
+      color: $light-pink;
     }
   }
-}
-
-br.paragraph{
-  height: 20px;
-}
-
-.about-image {
-  border-radius: 15px 15px 0px 0px;
-  max-width: 100%;
-  max-height: 100%;
+  .signature {
+    font-size: 44;
+    font-family: 'Rock Salt';
+  }
 }

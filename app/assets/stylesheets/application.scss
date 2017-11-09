@@ -16,12 +16,28 @@
 @import 'constants';
 @import 'bootstrap';
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Arvo|Cardo|Libre+Baskerville|Spectral');
+@import url('https://fonts.googleapis.com/css?family=Alegreya|Arvo|Cardo|Libre+Baskerville|Permanent+Marker|Rock+Salt|Spectral|Sanchez|Ubuntu');
 
 body {
-  font-family: 'Arvo', serif;
+  font-family: 'Alegreya';
   padding-top: 60px;
-  background-color: $light-green;
+  background-image: image-url('regal.png');
+  background-color: white;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.green {
+  color: $light-green;
+}
+
+.parallax-window {
+	min-height: 500px;
+	background: transparent;
+}
+
+img {
+  max-width: 100%;
 }
 
 li.nav-icon {

@@ -1,3 +1,9 @@
-<% @schools.each do |school| %>
-  <%= render 'school', school: school %>
-<% end %>
+<div id="schools">
+  <% @schools.each do |school| %>
+    <% if school.id % 2 == 0 %>
+      <%= render 'school_right', school: school %>
+    <% else %>
+      <%= render 'school', school: school %>
+    <% end %>
+  <% end %>
+</div>

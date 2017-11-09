@@ -3,8 +3,12 @@
 nav {
   height: 60px;
   color: darken($dark-green, 50%);
-  font-size: 30px;
+  font-size: 28px;
+  font-family: "Permanent Marker";
   background-color: $light-light-green !important;
+  -webkit-box-shadow: 0 0px 12px 0px $dark-pink;
+  -moz-box-shadow: 0 0px 12px 0px $dark-pink;
+  box-shadow: 0 0px 12px 0px $dark-pink;
 }
 
 .nav-icon {
@@ -24,5 +28,5 @@ nav {
 
 img.navbar-brand {
   max-width: 30px;
-  margin-left: 8px;
+  margin: 0px;
 }

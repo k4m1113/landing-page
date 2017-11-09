@@ -1,0 +1,35 @@
+<div class="project">
+  <div class="row">
+    <div class="col-sm-9">
+      <h4 class="project-header right">
+        <a href="<%= school.url %>" target="_blank" title="<%= school.name %> school homepage">
+          <%= school.name %>
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+        </a>
+      </h4>
+      <h6 class="right">
+        <%= "#{school.start_date.strftime("%B %Y")} to #{school.end_date.strftime("%B %Y")}" %>
+      </h6>
+      <p class="right">
+        <%= school.summary %>
+      </p>
+      <p class="right">
+        <strong>
+          Subjects:
+        </strong>
+        <%= school.subject_list %><br />
+        <strong>
+          Honors:
+        </strong>
+        <%= school.honor_list %><br />
+        <strong>
+          Degree:
+        </strong>
+        <%= school.degree %>
+      </p>
+    </div>
+    <div class="col-sm-3">
+      <img src="/seals/<%= school.screenshot %>.png" class="screenshot" />
+    </div>
+  </div>
+</div>

@@ -1,8 +1,5 @@
-<div class="project">
+<div class="project right">
   <div class="row">
-    <div class="col-sm-3">
-      <img src="/screenshots/<%= project.screenshot %>.jpg" class="screenshot" />
-    </div>
     <div class="col-sm-9">
       <h4 class="project-header">
         <a href="<%= project.deployment %>" target="_blank" title="view deployed site">
@@ -34,6 +31,9 @@
           <button class="tag" type="button" disabled><%= tag %></button>
         <% end %>
       </p>
+    </div>
+    <div class="col-sm-3">
+      <img src="/screenshots/<%= project.screenshot %>.jpg" class="screenshot" />
     </div>
   </div>
 </div>
