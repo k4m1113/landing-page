@@ -65,7 +65,7 @@ csuc.save
 opca = Project.create!(
   name: 'Online Public Classics Archive',
   url: 'https://github.com/kamillamagna/classics-archive',
-  deployment: 'http://classics.delgardo.co/',
+  deployment: 'http://opca.paideiainstitute.org/articles',
   screenshot: 'opca',
   when: Date.parse('May 2017'),
   description: 'searchable repository for modern scholarship about the classics built in conjunction with the Paideia Institute and Eidolon',
@@ -75,12 +75,12 @@ opca.keyword_list.add('ruby, rails, javascript, postgresql, search, filter, tag,
 opca.save
 
 nmf = Project.create!(
-  name: 'NMF Tool',
+  name: 'Marfan Registry',
   url: 'https://github.com/kamillamagna/NMF_Tool',
-  deployment: 'https://nmf-tool.herokuapp.com/',
+  deployment: 'https://marfan-registry.herokuapp.com/',
   screenshot: 'nmf',
   when: Date.parse('August 2017'),
-  description: 'clinical and research tool for diagnosis and treatment of connective tissue disorders',
+  description: 'clinical and research tool for diagnosis and treatment of symptoms related to connective tissue disorders',
   project_type: 'professional'
 )
 nmf.keyword_list.add('ruby, rails, webpack, javascript, jquery, postgresql, file attachment', parse: true)
