@@ -6,20 +6,20 @@ class WritingsController < ApplicationController
     all = []
 
     # blogger api call to 'The Irrational Rubyist'
-    # blogger = RestClient.get 'https://www.googleapis.com/blogger/v3/blogs/5529945907031995637/posts', { params: {
-      # key: ENV['BLOGGER_API_KEY'],
-      # fetchBodies: true,
-      # maxPosts: 20 } }
+    blogger = RestClient.get 'https://www.googleapis.com/blogger/v3/blogs/5529945907031995637/posts', { params: {
+      key: ENV['BLOGGER_API_KEY'],
+      fetchBodies: true,
+      maxPosts: 20 } }
     # serialize blogger posts
-    # blogger = JSON.parse(blogger)
-    # blogger['items'].each do |hash|
-    #   id = DateTime.parse(hash['published']).to_i
-    #   url = hash['url']
-    #   title = hash['title']
-    #   text = hash['content']
-    #   obj = Post.new(id: id, url: url, title: title, text: text)
-    #   all << obj
-    # end
+    blogger = JSON.parse(blogger)
+    blogger['items'].each do |hash|
+      id = DateTime.parse(hash['published']).to_i
+      url = hash['url']
+      title = hash['title']
+      text = hash['content']
+      obj = Post.new(id: id, url: url, title: title, text: text)
+      all << obj
+    end
 
     # instagram api call to kamillamagna feed
     insta = RestClient.get 'https://api.instagram.com/v1/users/self/media/recent', { params: {
