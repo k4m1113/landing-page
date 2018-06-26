@@ -1,24 +1,19 @@
 require 'date'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-mit = School.create!(
-  name: 'Massachusetts Institute of Technology',
-  url: 'http://web.mit.edu/',
-  screenshot: 'mit',
-  location: 'online (edX)',
-  degree: 'none',
-  start_date: Date.parse('June 2016'),
-  end_date: Date.today,
-  summary: 'I am slaying MIT coursework online through edX to bolster my computer science fundamentals while beginning my career as a web developer.'
+
+osu = School.create!(
+  name: 'Oregon State University',
+  url: 'http://oregonstate.edu/',
+  screenshot: 'osu',
+  location: 'Corvallis, OR (remote)',
+  degree: 'B.S., Computer Science',
+  start_date: Date.parse('February 2018'),
+  end_date: Date.parse('June 2019'),
+  summary: 'Full-time pursuit of a B.S. in Computer Science with coursework in data structures and algorithms, web development, CS fundamentals, operating systems, software engineering, and computer networking including group work and projects.'
 )
-mit.subject_list.add('Computer Science, Python, Data Structures, Algorithms', parse: true)
-mit.honor_list.add('none', parse: true)
-mit.save
+
+osu.subject_list.add('Computer Science, C++, Data Structures, Algorithms', parse: true)
+osu.honor_list.add('none', parse: true)
+osu.save
 
 cal = School.create!(
   name: 'University of California, Berkeley',
