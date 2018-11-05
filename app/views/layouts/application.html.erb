@@ -12,8 +12,12 @@
     <meta name="theme-color" content="#8E2A67" />
   </head>
 
-  <body>
-    <%= render 'layouts/navbar' %>
+    <% if !current_page?(controller: "homes", action: "show") %>
+      <body id="main">
+        <%= render 'layouts/navbar' %>
+    <% else %>
+      <body id="root">
+    <% end %>
     <%= yield %>
   </body>
 </>

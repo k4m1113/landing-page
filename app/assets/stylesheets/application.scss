@@ -17,10 +17,9 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Alegreya|Arvo|Cardo|Libre+Baskerville|Permanent+Marker|Rock+Salt|Spectral|Sanchez|Ubuntu');
 
-body {
+body#main {
   font-family: 'Alegreya';
   padding-top: 60px;
-  background-image: image-url('regal.png');
   background-color: white;
   background-attachment: fixed;
   position: relative;

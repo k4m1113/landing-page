@@ -1,0 +1,79 @@
+<div class="row" id="kContainer">
+  <div class="col-sm-12" id="kamilleotron">
+    <h4>How can I help you?</h4>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var kamille = document.getElementById("kamilleotron");
+  var kContainer = document.getElementById("kContainer");
+  var intros = [
+    <%# "hello, stranger!",
+    "welcome to the Kamille-o-tron",
+    "try out some commands", %>
+    "or type -h for help",
+  ];
+
+  var printCharOneByOne = function(statement, i, t) {
+    var br = document.createElement('br');
+    var interval = setInterval(function(){
+      kamille.innerHTML += statement.charAt(i);
+      i++;
+      t += 25;
+      if (i > statement.length){
+        clearInterval(interval);
+        kamille.append(br);
+      }
+    }, charTime);
+  }
+  t = 0;
+  charTime = 25;
+  lineTime = 1000;
+  intros.forEach(x => setTimeout(function() {
+    kamille.append("> ");
+    var i = 0;
+    printCharOneByOne(x, i , t);
+  }, t += lineTime))
+  console.log("time: " + t);
+
+  // stasis
+  var commandForm = document.createElement('form');
+  var commandPrompt = document.createElement('input');
+  commandPrompt.setAttribute("id", "commandPrompt");
+  commandPrompt.setAttribute("type", "text");
+  commandForm.appendChild(commandPrompt);
+  commandForm.setAttribute("id", "commandForm");
+
+  setTimeout(function() {
+    kContainer.append("> ");
+    kContainer.append(commandForm);
+    commandForm.focus();
+  }, t+1000);
+
+  commandForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    var br = document.createElement('br');
+    var command = commandPrompt.value;
+    var resp;
+    switch (command) {
+      case "-h":
+      case "-H":
+      case "h":
+      case "H":
+        resp = "HELP I NEED SOMEBODY"
+
+        break;
+      default:
+        resp = "command not recognized!";
+    }
+    commandPrompt.value = "";
+    kamilleotron.append(br);
+    kamilleotron.append("> " + resp);
+    kamilleotron.append(br);
+    debugger
+  });
+
+  document.getEl
+
+
+</script>

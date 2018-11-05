@@ -1,0 +1,21 @@
+body#root {
+  background: black;
+}
+#kamilleotron {
+  margin-left: auto;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+}
+#commandForm {
+  display: inline-block;
+  margin-left: 36px;
+  input {
+    background-color: black;
+    border: 0;
+    color: white
+  }
+}
+#commandPrompt:focus {
+  outline-color: none;
+}
