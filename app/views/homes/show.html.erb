@@ -19,15 +19,16 @@
     var interval = setInterval(function(){
       kamille.innerHTML += statement.charAt(i);
       i++;
-      t += 25;
+      var del = Math.floor(Math.random() * 10) + 20;
+      t += del;
       if (i > statement.length){
         clearInterval(interval);
         kamille.append(br);
       }
-    }, charTime);
+    }, del);
   }
   t = 0;
-  charTime = 25;
+  charTime = del;
   lineTime = 1000;
   intros.forEach(x => setTimeout(function() {
     kamille.append("> ");
@@ -60,8 +61,12 @@
       case "-H":
       case "h":
       case "H":
-        resp = "HELP I NEED SOMEBODY"
+        resp = "HELP I NEED SOMEBODY";
 
+        break;
+      case "chopin":
+      case "Chopin":
+        resp = "hey Matt, go fuck yourself";
         break;
       default:
         resp = "command not recognized!";
