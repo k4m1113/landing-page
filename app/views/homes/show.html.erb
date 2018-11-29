@@ -3,7 +3,6 @@
     <h4>How can I help you?</h4>
   </div>
 </div>
-
 <script type="text/javascript">
   var kamille = document.getElementById("kamilleotron");
   var kContainer = document.getElementById("kContainer");
@@ -24,13 +23,19 @@
     fieldset.append(submitButton);
     return fieldset;
   }
-  var intros = [
-    <%# "hello, stranger!",
-    "welcome to the Kamille-o-tron",
-    "try out some commands", %>
-    "or type -h for help",
-  ];
 
+  function getResume() {
+    new Promise(resolve, reject => {
+
+    })
+    .then((value) => {
+      return value;
+    })
+  }
+
+
+
+//---------------------------  printCharOneByOne()  ----------------------------
   var del = Math.floor(Math.random() * 10) + 20;
   var printCharOneByOne = function(statement, i, t) {
     var br = document.createElement('br');
@@ -44,17 +49,19 @@
       }
     }, del);
   }
+
+//------------------------------  initial prompt  ------------------------------
   t = 0;
   charTime = del;
   lineTime = 1000;
-  intros.forEach(x => setTimeout(() => {
+  setTimeout(() => {
     kamille.append("> ");
     var i = 0;
-    printCharOneByOne(x, i , t);
-  }, t += lineTime))
+    printCharOneByOne("or type -h for help", i , t);
+  }, t += lineTime);
   console.log("time: " + t);
 
-  // stasis
+//--------------------------------  input line  --------------------------------
   var commandForm = document.createElement('form');
   var commandPrompt = document.createElement('input');
   commandPrompt.setAttribute("id", "commandPrompt");
@@ -63,12 +70,12 @@
   commandForm.appendChild(commandPrompt);
   commandForm.setAttribute("id", "commandForm");
   commandForm.setAttribute("autocomplete", "off")
-
   setTimeout(function() {
     kContainer.append("> ");
     kContainer.append(commandForm);
   }, t+1000);
 
+//-------------------------  handle command input  -----------------------------
   commandForm.addEventListener("submit", function(e){
     e.preventDefault();
     var br = document.createElement('br');
@@ -83,6 +90,10 @@
         resp = "HELP I NEED SOMEBODY";
 
         break;
+      case "resume":
+      case "Resume":
+        resp = getResume();
+        break;
       case "chopin":
       case "Chopin":
         resp = "hey Matt, go fuck yourself";
@@ -90,13 +101,20 @@
       default:
         resp = "command not recognized!";
     }
+
+//---------------------------------  response  ---------------------------------
     commandPrompt.value = "";
 
-    kamilleotron.append("> " + command);
+    kamilleotron.append("< " + command);
     kamilleotron.append(br);
 
-    kamilleotron.append("> " + resp);
-    kamilleotron.append(br2);
+    t = -900;
+    charTime = del;
+    lineTime = 1000;
+    setTimeout(() => {
+      kamilleotron.append("> ");
+      var i = 0;
+      printCharOneByOne(resp, i , t);
+    }, t += lineTime);
   });
-
 </script>

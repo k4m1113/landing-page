@@ -17,4 +17,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-parallax.js/parallax.js
+//= require request/request.js
+//= require node-fetch/lib/index.js
 //= require_tree .
+//= require ./cli.js

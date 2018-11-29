@@ -22,7 +22,7 @@ gem 'sass-rails'
 gem 'turbolinks', '~> 5'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker'
+gem 'webpacker', '>= 4.0.x'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
