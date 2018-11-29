@@ -2,13 +2,8 @@
   "name": "landing-page",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.5.5",
-    "ajv": "^6.6.1",
-    "coffeescript": "1.12.7",
-    "jquery-parallax.js": "^1.5.0",
-    "node-fetch": "^2.3.0",
-    "request": "^2.88.0",
-    "webpack": "^4.26.1"
+    "@rails/webpacker@next": "https://github.com/rails/webpacker",
+    "request": "^2.88.0"
   },
   "version": "1.0.0",
   "main": "index.js",
@@ -16,6 +11,7 @@
   "author": "Kamille Delgardo <kamilledelgardo@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   }
 }
