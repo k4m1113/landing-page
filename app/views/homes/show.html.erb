@@ -7,6 +7,23 @@
 <script type="text/javascript">
   var kamille = document.getElementById("kamilleotron");
   var kContainer = document.getElementById("kContainer");
+  function linkify(cmd) {
+    var fieldset = document.createElement('fieldset');
+    var hiddenInput = document.createElement('input');
+    var submitButton = document.createElement('button');
+
+    hiddenInput.value = cmd;
+    submitButton.setAttribute('type', 'submit');
+    submitButton.classList += "cmd";
+    submitButton.innerText = cmd;
+    submitButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      console.log(cmd);
+    })
+    fieldset.append(hiddenInput);
+    fieldset.append(submitButton);
+    return fieldset;
+  }
   var intros = [
     <%# "hello, stranger!",
     "welcome to the Kamille-o-tron",
@@ -14,12 +31,12 @@
     "or type -h for help",
   ];
 
+  var del = Math.floor(Math.random() * 10) + 20;
   var printCharOneByOne = function(statement, i, t) {
     var br = document.createElement('br');
     var interval = setInterval(function(){
       kamille.innerHTML += statement.charAt(i);
       i++;
-      var del = Math.floor(Math.random() * 10) + 20;
       t += del;
       if (i > statement.length){
         clearInterval(interval);
@@ -30,7 +47,7 @@
   t = 0;
   charTime = del;
   lineTime = 1000;
-  intros.forEach(x => setTimeout(function() {
+  intros.forEach(x => setTimeout(() => {
     kamille.append("> ");
     var i = 0;
     printCharOneByOne(x, i , t);
@@ -42,18 +59,20 @@
   var commandPrompt = document.createElement('input');
   commandPrompt.setAttribute("id", "commandPrompt");
   commandPrompt.setAttribute("type", "text");
+  commandPrompt.setAttribute("autofocus", "true");
   commandForm.appendChild(commandPrompt);
   commandForm.setAttribute("id", "commandForm");
+  commandForm.setAttribute("autocomplete", "off")
 
   setTimeout(function() {
     kContainer.append("> ");
     kContainer.append(commandForm);
-    commandForm.focus();
   }, t+1000);
 
   commandForm.addEventListener("submit", function(e){
     e.preventDefault();
     var br = document.createElement('br');
+    var br2 = document.createElement('br');
     var command = commandPrompt.value;
     var resp;
     switch (command) {
@@ -72,13 +91,12 @@
         resp = "command not recognized!";
     }
     commandPrompt.value = "";
+
+    kamilleotron.append("> " + command);
     kamilleotron.append(br);
+
     kamilleotron.append("> " + resp);
-    kamilleotron.append(br);
-    debugger
+    kamilleotron.append(br2);
   });
-
-  document.getEl
-
 
 </script>
