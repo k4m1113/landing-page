@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker@next": "https://github.com/rails/webpacker",
+    "moment": "^2.22.2",
     "request": "^2.88.0"
   },
   "version": "1.0.0",

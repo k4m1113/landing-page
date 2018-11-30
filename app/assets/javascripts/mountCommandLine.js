@@ -2,6 +2,8 @@ const WIDTH = 80;
 function mountCommandLine(document) {
   var kamille = document.getElementById("kamilleotron");
   var kContainer = document.getElementById("kContainer");
+  const available = ["-h", "projects"]
+
   // function linkify(cmd) {
   //   var fieldset = document.createElement('fieldset');
   //   var hiddenInput = document.createElement('input');
@@ -23,22 +25,44 @@ function mountCommandLine(document) {
     kamille.append(document.createElement('br'));
   }
 
-  //============================  getProjects()  ===============================
-  async function getProjects(cmd) {
+  lefty = () => {
+    kamille.append(` │ `);
+  }
+
+  fillForm = (val) => {
+    commandPrompt.value = val
+  }
+
+
+  //================================  help()  ==================================
+  function help() {
+  // DESCRIPTION
+  //   formats and prints available commands to console
+  // PARAMETERS
+  //   none
+  // RETURNS
+  //   none
+    available.forEach(cmd => {
+      var cmdLink = document.createElement('button');
+      cmdLink.setAttribute("onclick", `fillForm("${cmd}");`);
+      cmdLink.innerText = cmd;
+      kamille.append(` ╶◎ `);
+      kamille.append(cmdLink);
+      breaker();
+    })
+    document.getElementById('commandPrompt').scrollIntoView();
+  }
+
+  //============================  projects()  ===============================
+  async function projects() {
   // DESCRIPTION
   //   pings my rails backend for json dump of projects
   //   formats and prints projects to console
   // PARAMETERS
-  //   cmd: string command entered by user for appending to the kamilleotron
+  //   none
   // RETURNS
   //   array of projects as json strings
-    //-------------------------  handle user input  ----------------------------
-    commandPrompt.value = "";
-    var br = document.createElement("br");
-    kamille.append("< " + cmd);
-    kamille.append(br);
     //--------------------  get projects json from rails  ----------------------
-
     try {
       const response = await fetch('http://0.0.0.0:3000/projects.json');
       let arr = [];
@@ -50,27 +74,43 @@ function mountCommandLine(document) {
         projectLink.setAttribute("href", val.url);
         projectLink.setAttribute("target", "_blank")
         projectLink.innerText = val.name;
-        kamille.append(` ┌─ `);
+        kamille.append(` ╭◎ `);
         kamille.append(projectLink);
-        var w = WIDTH
-        if (w > Math.floor(window.innerWidth / 11)) {
-          w = Math.floor(window.innerWidth / 11);
-        }
+        w = Math.floor(window.innerWidth / 11);
+        const WINDOWWIDTH = (WIDTH > w ? w : WIDTH);
 
-        kamille.append(` ──`.padEnd(w - val.name.length - 3, "─"))
-        breaker();
-
-        kamille.append(` │ `);
-        var d = new Date(val.when).toUTCString()
-        kamille.append(d)
+        kamille.append(` ◎`.padEnd(WINDOWWIDTH - val.name.length - 4, "╶"))
+        kamille.append(`◎`)
         breaker();
 
-        var w = WIDTH
-        kamille.append(` │ `);
-        kamille.append(val.description);
+        var d = new Date(val.when)
+        var md = moment(d).format("MMMM YYYY");
+        lefty();
+        kamille.append(md);
         breaker();
-        kamille.append(` └`.padEnd(w - 13, "─"))
+
+        // split description so each line has box-left border
+        var words = val.description.split(" ");
+        var lines = [""];
+        var currLine = 0;
+        words.forEach(word => {
+          var currLen = (lines[currLine]).length;
+          var lenToAdd = word.length
+          if ((currLen + lenToAdd) >= (WINDOWWIDTH-1)) {
+            currLine++;
+            lines[currLine] = "";
+          }
+          lines[currLine] += `${word} `
+        })
+        console.log("lines: ", lines)
+        lines.forEach(line => {
+          lefty();
+          kamille.append(` ${line}`);
+          breaker();
+        })
+        kamille.append(` ╰◎`);
         breaker();
+        document.getElementById('commandPrompt').scrollIntoView();
       })
       return arr
     }
@@ -86,7 +126,7 @@ function mountCommandLine(document) {
       t += del;
       if (i > statement.length){
         clearInterval(interval);
-        breaker;
+        breaker();
       }
     }, del);
   }
@@ -114,12 +154,10 @@ function mountCommandLine(document) {
     kContainer.append("> ");
     kContainer.append(commandForm);
   }, t+1000);
-
 //-------------------------  handle command input  -----------------------------
   commandForm.addEventListener("submit", function(e){
     e.preventDefault();
-    var br = document.createElement('br');
-    var br2 = document.createElement('br');
+
     var command = commandPrompt.value;
     var resp;
     switch (command) {
@@ -127,13 +165,11 @@ function mountCommandLine(document) {
       case "-H":
       case "h":
       case "H":
-        resp = `available commands: ${command}, projects`;
-
+        resp = help();
         break;
       case "projects":
       case "Projects":
-        getProjects(command);
-        return
+        resp = projects();
         break;
       case "chopin":
       case "Chopin":
@@ -149,13 +185,15 @@ function mountCommandLine(document) {
     kamille.append("< " + command);
     kamille.append(br);
 
-    t = -900;
-    charTime = del;
-    lineTime = 1000;
-    setTimeout(() => {
-      kamille.append("> ");
-      var i = 0;
-      printCharOneByOne(resp, i , t);
-    }, t += lineTime);
+    resp;
+
+    // t = -900;
+    // charTime = del;
+    // lineTime = 1000;
+    // setTimeout(() => {
+    //   kamille.append("> ");
+    //   var i = 0;
+    //   printCharOneByOne(resp, i , t);
+    // }, t += lineTime);
   });
 }
