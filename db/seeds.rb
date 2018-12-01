@@ -7,11 +7,11 @@ osu = School.create!(
   location: 'Corvallis, OR (remote)',
   degree: 'B.S., Computer Science',
   start_date: Date.parse('February 2018'),
-  end_date: Date.parse('June 2019'),
+  end_date: Date.parse('August 2019'),
   summary: 'Full-time pursuit of a B.S. in Computer Science with coursework in data structures and algorithms, web development, CS fundamentals, operating systems, software engineering, and computer networking including group work and projects.'
 )
 
-osu.subject_list.add('Computer Science, C++, Data Structures, Algorithms', parse: true)
+osu.subject_list.add('Computer Science, C, Data Structures, Algorithms', parse: true)
 osu.honor_list.add('none', parse: true)
 osu.save
 

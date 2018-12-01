@@ -5,12 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.3.4'
+ruby '2.4.2'
 
 gem 'activerecord'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'autoprefixer-rails'
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
@@ -36,5 +36,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

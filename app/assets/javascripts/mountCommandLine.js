@@ -1,8 +1,23 @@
 const WIDTH = 80;
+const mattMsg = "Hey Matt, go fuck yourself."
+
+const commands = {
+  "help": {
+    aliases: []
+  }"-h"        : help(),
+  "-H"        : help(),
+  "h"         : help(),
+  "H"         : help(),
+  "help"      : help(),
+  "Help"      : help(),
+  "projects": : projects(),
+  "Projects"  : projects(),
+  "chopin"    : printCharOneByOne(mattMsg);
+}
 function mountCommandLine(document) {
   var kamille = document.getElementById("kamilleotron");
   var kContainer = document.getElementById("kContainer");
-  const available = ["-h", "projects"]
+  const available = ["help", "projects"]
 
   // function linkify(cmd) {
   //   var fieldset = document.createElement('fieldset');
@@ -29,8 +44,49 @@ function mountCommandLine(document) {
     kamille.append(` │ `);
   }
 
-  fillForm = (val) => {
-    commandPrompt.value = val
+  printCharOneByOne = (statement, i = 0, t = 0) => {
+    var del = Math.floor(Math.random() * 10) + 20;
+    var interval = setInterval(function(){
+      kamille.innerHTML += statement.charAt(i);
+      i++;
+      t += del;
+      if (i > statement.length){
+        clearInterval(interval);
+        breaker();
+      }
+    }, del);
+  }
+
+  writeCmd = (val) => {
+    commandPrompt.value = "";
+    kamille.append("< " + val);
+    breaker();
+    parseCmd(val);
+  }
+
+  parseCmd = (command) => {
+    var resp;
+    switch (command) {
+      case "-h":
+      case "-H":
+      case "h":
+      case "H":
+      case "help":
+      case "Help":
+        resp = help();
+        break;
+      case "projects":
+      case "Projects":
+        resp = projects();
+        break;
+      case "chopin":
+      case "Chopin":
+        resp = printCharOneByOne("hey Matt, go fuck yourself");
+        break;
+      default:
+        resp = "command not recognized!";
+    }
+    return resp;
   }
 
 
@@ -44,8 +100,9 @@ function mountCommandLine(document) {
   //   none
     available.forEach(cmd => {
       var cmdLink = document.createElement('button');
-      cmdLink.setAttribute("onclick", `fillForm("${cmd}");`);
+      cmdLink.setAttribute("onclick", `writeCmd("${cmd}")`);
       cmdLink.innerText = cmd;
+      cmdLink.classList += "cmd";
       kamille.append(` ╶◎ `);
       kamille.append(cmdLink);
       breaker();
@@ -72,8 +129,9 @@ function mountCommandLine(document) {
         arr.push(JSON.stringify(val));
         var projectLink = document.createElement('a');
         projectLink.setAttribute("href", val.url);
-        projectLink.setAttribute("target", "_blank")
+        projectLink.setAttribute("target", "_blank");
         projectLink.innerText = val.name;
+        projectLink.classList += "cmd";
         kamille.append(` ╭◎ `);
         kamille.append(projectLink);
         w = Math.floor(window.innerWidth / 11);
@@ -118,28 +176,10 @@ function mountCommandLine(document) {
   }
 
 //---------------------------  printCharOneByOne()  ----------------------------
-  var del = Math.floor(Math.random() * 10) + 20;
-  var printCharOneByOne = function(statement, i, t) {
-    var interval = setInterval(function(){
-      kamille.innerHTML += statement.charAt(i);
-      i++;
-      t += del;
-      if (i > statement.length){
-        clearInterval(interval);
-        breaker();
-      }
-    }, del);
-  }
+
 
 //------------------------------  initial prompt  ------------------------------
   t = 0;
-  charTime = del;
-  lineTime = 1000;
-  setTimeout(() => {
-    kamille.append("> ");
-    var i = 0;
-    printCharOneByOne("or type -h for help", i , t);
-  }, t += lineTime);
 
 //--------------------------------  input line  --------------------------------
   var commandForm = document.createElement('form');
@@ -159,33 +199,7 @@ function mountCommandLine(document) {
     e.preventDefault();
 
     var command = commandPrompt.value;
-    var resp;
-    switch (command) {
-      case "-h":
-      case "-H":
-      case "h":
-      case "H":
-        resp = help();
-        break;
-      case "projects":
-      case "Projects":
-        resp = projects();
-        break;
-      case "chopin":
-      case "Chopin":
-        resp = "hey Matt, go fuck yourself";
-        break;
-      default:
-        resp = "command not recognized!";
-    }
-
-//---------------------------------  response  ---------------------------------
-    commandPrompt.value = "";
-
-    kamille.append("< " + command);
-    kamille.append(br);
-
-    resp;
+    writeCmd(command);
 
     // t = -900;
     // charTime = del;

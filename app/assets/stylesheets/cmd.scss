@@ -1,0 +1,40 @@
+@import "monokai";
+
+body#root {
+  background: $monokai-bg;
+}
+
+#kamilleotron {
+  margin-left: auto;
+  background: $monokai-bg;
+  color: $monokai-text-color;
+  font-family: monospace;
+  font-size: 18px;
+}
+#commandForm {
+  display: inline-block;
+  input {
+    background: $monokai-bg;
+    border: 0;
+    color: $monokai-text-color
+  }
+}
+#commandPrompt {
+  font-family: monospace !important;
+  font-size: 18px !important;
+  margin: 0 0 0 25px;
+  &:focus {
+    outline-style: none !important;
+  }
+}
+
+button.cmd, a.cmd {
+  background: none;
+  border: none;
+  color: $monokai-k;
+  &:hover {
+    color: $monokai-o;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

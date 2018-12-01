@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker@next": "https://github.com/rails/webpacker",
+    "autocomplete-js": "^2.7.1",
     "moment": "^2.22.2",
     "request": "^2.88.0"
   },

@@ -1,0 +1,85 @@
+/* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+
+/*
+* Monokai Colors
+*/
+$monokai-bg: #272822;
+$monokai-border: #555;
+$monokai-text-color: #f8f8f2;
+$monokai-line-num-color: rgba(255, 255, 255, 0.3);
+$monokai-line-num-color-new: #707565;
+$monokai-line-num-color-old: #7e736f;
+$monokai-line-empty-bg: #49483e;
+$monokai-line-empty-border: darken($monokai-line-empty-bg, 15%);
+$monokai-diff-border: #808080;
+$monokai-highlight-bg: #ffe792;
+$monokai-over-bg: #9f9ab5;
+$monokai-expanded-bg: #3e3e3e;
+
+$monokai-new-bg: rgba(166, 226, 46, 0.1);
+$monokai-new-idiff: rgba(166, 226, 46, 0.15);
+
+$monokai-old-bg: rgba(254, 147, 140, 0.15);
+$monokai-old-idiff: rgba(254, 147, 140, 0.2);
+
+$monokai-hll: #49483e;
+$monokai-c: #75715e;
+$monokai-err-color: #960050;
+$monokai-err-bg: #1e0010;
+$monokai-k: #66d9ef;
+$monokai-l: #ae81ff;
+$monokai-n: #f8f8f2;
+$monokai-o: #f92672;
+$monokai-p: #f8f8f2;
+$monokai-cm: #75715e;
+$monokai-cp: #75715e;
+$monokai-c1: #75715e;
+$monokai-cs: #75715e;
+$monokai-kc: #66d9ef;
+$monokai-kd: #66d9ef;
+$monokai-kn: #f92672;
+$monokai-kp: #66d9ef;
+$monokai-kr: #66d9ef;
+$monokai-kt: #66d9ef;
+$monokai-ld: #e6db74;
+$monokai-m: #ae81ff;
+$monokai-s: #e6db74;
+$monokai-na: #a6e22e;
+$monokai-nb: #f8f8f2;
+$monokai-nc: #a6e22e;
+$monokai-no: #66d9ef;
+$monokai-nd: #a6e22e;
+$monokai-ni: #f8f8f2;
+$monokai-ne: #a6e22e;
+$monokai-nf: #a6e22e;
+$monokai-nl: #f8f8f2;
+$monokai-nn: #f8f8f2;
+$monokai-nx: #a6e22e;
+$monokai-py: #f8f8f2;
+$monokai-nt: #f92672;
+$monokai-nv: #f8f8f2;
+$monokai-ow: #f92672;
+$monokai-w: #f8f8f2;
+$monokai-mf: #ae81ff;
+$monokai-mh: #ae81ff;
+$monokai-mi: #ae81ff;
+$monokai-mo: #ae81ff;
+$monokai-sb: #e6db74;
+$monokai-sc: #e6db74;
+$monokai-sd: #e6db74;
+$monokai-s2: #e6db74;
+$monokai-se: #ae81ff;
+$monokai-sh: #e6db74;
+$monokai-si: #e6db74;
+$monokai-sx: #e6db74;
+$monokai-sr: #e6db74;
+$monokai-s1: #e6db74;
+$monokai-ss: #e6db74;
+$monokai-bp: #f8f8f2;
+$monokai-vc: #f8f8f2;
+$monokai-vg: #f8f8f2;
+$monokai-vi: #f8f8f2;
+$monokai-il: #ae81ff;
+$monokai-gu: #75715e;
+$monokai-gd: #f92672;
+$monokai-gi: #a6e22e;
