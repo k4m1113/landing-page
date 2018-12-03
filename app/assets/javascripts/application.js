@@ -17,4 +17,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require moment/moment.js
+//= require autocomplete-js/dist/autocomplete.js
 //= require_tree .
