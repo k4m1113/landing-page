@@ -65,8 +65,9 @@ async function projects() {
 //   array of projects as json strings
   //--------------------  get projects json from rails  ----------------------
   var kamille = document.getElementById('kamilleotron');
+  console.log(window.location.href);
   try {
-    const response = await fetch('http://0.0.0.0:3000/projects.json');
+    const response = await fetch(`${window.location.href}/projects.json`);
     let arr = [];
     let result = await response.json();
     //-----------------------  process each project --------------------------
