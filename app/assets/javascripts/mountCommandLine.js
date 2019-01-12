@@ -34,21 +34,17 @@ var writeCmd = (val, document) => {
 
 var parseCmd = (command, document) => {
   var resp;
-  switch (command) {
-    case "-h":
-    case "-H":
-    case "h":
-    case "H":
+  command.split(" ");
+  program = command[0];
+  argv = command.slice(1);
+  switch (program) {
     case "help":
-    case "Help":
       resp = help(document);
       break;
     case "projects":
-    case "Projects":
       resp = projects(document);
       break;
     case "chopin":
-    case "Chopin":
       resp = printCharOneByOne("hey Matt, go fuck yourself");
       break;
     default:
