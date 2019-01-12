@@ -1,16 +1,16 @@
 const WIDTH = 80;
 
-var breaker = (document) => {
+var breaker = () => {
   var kamille = document.getElementById("kamilleotron");
   kamille.append(document.createElement('br'));
 }
 
-var lefty = (document) => {
+var lefty = () => {
   var kamille = document.getElementById("kamilleotron");
   kamille.append(` │ `);
 }
 
-var printCharOneByOne = (statement, i = 0, t = 0, document) => {
+var printCharOneByOne = (statement, i = 0, t = 0) => {
   var kamille = document.getElementById("kamilleotron");
   var del = Math.floor(Math.random() * 10) + 20;
   var interval = setInterval(function(){
@@ -19,30 +19,31 @@ var printCharOneByOne = (statement, i = 0, t = 0, document) => {
     t += del;
     if (i > statement.length){
       clearInterval(interval);
-      breaker(document);
+      breaker();
     }
   }, del);
 }
 
-var writeCmd = (val, document) => {
+var writeCmd = (val) => {
   var kamille = document.getElementById("kamilleotron");
   commandPrompt.value = "";
   kamille.append("< " + val);
-  breaker(document);
-  parseCmd(val, document);
+  breaker();
+  parseCmd(val);
 }
 
-var parseCmd = (command, document) => {
+var parseCmd = (command) => {
   var resp;
   command.split(" ");
-  program = command[0];
+  program = command;
+  console.log("cmd: ", program);
   argv = command.slice(1);
   switch (program) {
     case "help":
-      resp = help(document);
+      resp = help();
       break;
     case "projects":
-      resp = projects(document);
+      resp = projects();
       break;
     case "chopin":
       resp = printCharOneByOne("hey Matt, go fuck yourself");
@@ -54,7 +55,7 @@ var parseCmd = (command, document) => {
 }
 
 //============================  projects()  ===============================
-async function projects(document) {
+async function projects() {
 // DESCRIPTION
 //   pings my rails backend for json dump of projects
 //   formats and prints projects to console
@@ -83,13 +84,13 @@ async function projects(document) {
 
       kamille.append(` ◎`.padEnd(WINDOWWIDTH - val.name.length - 4, "╶"))
       kamille.append(`◎`)
-      breaker(document);
+      breaker();
 
       var d = new Date(val.when)
       var md = moment(d).format("MMMM YYYY");
-      lefty(document);
+      lefty();
       kamille.append(md);
-      breaker(document);
+      breaker();
 
       // split description so each line has box-left border
       var words = val.description.split(" ");
@@ -105,21 +106,21 @@ async function projects(document) {
         lines[currLine] += `${word} `
       })
       lines.forEach(line => {
-        lefty(document);
+        lefty();
         kamille.append(` ${line}`);
-        breaker(document);
+        breaker();
       })
       kamille.append(` ╰◎`);
-      breaker(document);
+      breaker();
       document.getElementById('commandPrompt').scrollIntoView();
     })
     return arr
   }
-  catch (err) { kamille.append("> Error fetching resume: ", err); breaker(document); }
+  catch (err) { kamille.append("> Error fetching resume: ", err); breaker(); }
 }
 
 //================================  help()  ==================================
-function help(document) {
+function help() {
 // DESCRIPTION
 //   formats and prints available commands to console
 // PARAMETERS
@@ -130,18 +131,18 @@ function help(document) {
   var kamille = document.getElementById('kamilleotron');
   available.forEach(cmd => {
     var cmdLink = document.createElement('button');
-    cmdLink.setAttribute("onclick", `writeCmd("${cmd}", ${document})`);
+    cmdLink.setAttribute("onclick", `writeCmd("${cmd}")`);
     cmdLink.innerText = cmd;
     cmdLink.classList += "cmd";
     kamille.append(` ╶◎ `);
     kamille.append(cmdLink);
-    breaker(document);
+    breaker();
   })
   document.getElementById('commandPrompt').scrollIntoView();
 }
 
 
-function mountCommandLine(document) {
+function mountCommandLine() {
   var kamille = document.getElementById("kamilleotron");
   var kContainer = document.getElementById("kContainer");
 
@@ -166,7 +167,7 @@ function mountCommandLine(document) {
     e.preventDefault();
 
     var command = commandPrompt.value;
-    writeCmd(command, document);
+    writeCmd(command);
 
     // t = -900;
     // charTime = del;
