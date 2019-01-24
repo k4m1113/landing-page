@@ -16,10 +16,18 @@
 
     <% if !current_page?(controller: "homes", action: "show") %>
       <body id="main">
+        <%= render 'layouts/header' %>
         <%= render 'layouts/navbar' %>
     <% else %>
       <body id="root">
     <% end %>
     <%= yield %>
+    <div data-spy="scroll" data-target="#mainNav" data-offset="0">
+
+    <%= render 'projects/index', projects: @projects %>
+    <%= render 'schools/index', schools: @schools %>
+    </div>
+    <%= render 'layouts/links' %>
   </body>
+
 </html>

@@ -16,10 +16,10 @@
  */
 @import 'constants';
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Alegreya|Arvo|Cardo|Libre+Baskerville|Permanent+Marker|Rock+Salt|Spectral|Sanchez|Ubuntu');
+@import "monokai";
 
 body#main {
-  font-family: 'Alegreya';
+  font-family: 'monospace';
   padding-top: 60px;
   background-color: white;
   background-attachment: fixed;
