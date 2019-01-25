@@ -14,18 +14,16 @@
  *= require_self
  *= require autocomplete-js/dist/autocomplete.css
  */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,900');
 @import 'constants';
 @import 'bootstrap';
 @import "monokai";
 
 body#main {
-  font-family: 'sans-serif';
-  padding-top: 60px;
-  background-color: white;
-}
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+  background-color: white !important;
 
-.green {
-  color: $light-green;
 }
 
 
@@ -33,23 +31,18 @@ img {
   max-width: 100%;
 }
 
-button.tag {
-  @extend .btn;
-  padding: 4px !important;
-  background-color: #eeeeee ;
-  color: $dark-light-green;
-  cursor: default;
-  &:hover {
-    cursor: default;
-  }
-}
+
 #intro {
+  background-color: $turkish-sea;
+  color: white;
   height: 100vh;
 }
 
 
 #doings {
+  padding: 0px 120px;
   position: relative;
-  height: calc(100vh - 80px);
-    overflow: auto;
+  height: calc(100vh - 85px);
+  overflow: auto;
+  color: $turkish-sea;
 }

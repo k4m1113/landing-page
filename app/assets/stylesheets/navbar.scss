@@ -2,7 +2,18 @@
 
 nav {
   height: 60px;
-  color: darken($dark-green, 50%);
   font-size: 28px;
-  background-color: white !important;
+  font-family: 'Montserrat Subrayada', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color:  $turkish-sea !important;
+}
+
+
+a.nav-link{
+   color: white;
+   text-decoration: none;
+   &.active, &:hover {
+     color: $living-coral;
+  }
 }

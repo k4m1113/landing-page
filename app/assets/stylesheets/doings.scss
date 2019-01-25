@@ -1,0 +1,42 @@
+@import 'constants';
+@import 'bootstrap';
+div.project, div.school {
+  margin: 0px auto;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.right {
+  text-align: right;
+}
+
+img.screenshot {
+  width: inherit;
+}
+
+.school-header, .project-header {
+  text-decoration: none;
+  font-size: 20px;
+  a {
+    color: $viridian-green;
+    &:hover {
+      text-decoration: none;
+      color: $living-coral;
+    }
+    &:focus {
+      text-decoration: none;
+      color: $living-coral;
+    }
+  }
+}
+button.tag {
+  @extend .btn;
+  font-size: 14px;
+  padding: 2px 4px !important;
+  border: 1px solid $turtle-green;
+  color: $turtle-green;
+  cursor: default;
+  &:hover {
+    cursor: default;
+  }
+}

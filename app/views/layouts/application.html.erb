@@ -16,18 +16,12 @@
 
     <% if !current_page?(controller: "homes", action: "show") %>
       <body id="main">
-        <div id="intro" class="container">
-          <%= render 'layouts/header' %>
-        </div>
         <%= render 'layouts/navbar' %>
-        <div id="doingsContainer" class="container">
-          <div id="doings" data-spy="scroll" data-target="#mainNav" data-offset="60">
+          <div id="doings">
             <%= render 'projects/index', projects: @projects %>
             <%= render 'schools/index', schools: @schools %>
           </div>
-        </div>
-        <%= render 'layouts/links' %>
-    <% else %>
+      <% else %>
       <body id="root">
         <%= yield %>
 
@@ -35,5 +29,20 @@
 
     <%= render 'layouts/links' %>
   </body>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#mainNav ul li a[href^='#']").on('click', function(e) {
+   e.preventDefault()
 
+   var href = $(this).attr("href");
+   var hash = href.substr(href.indexOf("#"));
+   $('html, body').animate({
+       scrollTop: $(hash).offset().top - 60
+     }, 250, function(){
+       window.location.hash = hash;
+     })
+
+})
+  })
+</script>
 </html>
