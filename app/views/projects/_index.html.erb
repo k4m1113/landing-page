@@ -1,6 +1,5 @@
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render 'projects/project', project: project %>
-    <hr />
-  <% end %>
-</div>
+<h6 id="portfolio">Portfolio</h6>
+<% @projects.each do |project| %>
+  <%= render 'projects/project', project: project %>
+  <hr />
+<% end %>

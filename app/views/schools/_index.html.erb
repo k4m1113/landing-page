@@ -1,9 +1,4 @@
-<div id="schools">
-  <% @schools.each do |school| %>
-    <% if school.id % 2 == 0 %>
-      <%= render 'schools/school_right', school: school %>
-    <% else %>
-      <%= render 'schools/school', school: school %>
-    <% end %>
-  <% end %>
-</div>
+<h5 id="education"></h5>
+<% @schools.each do |school| %>
+  <%= render 'schools/school', school: school %>
+<% end %>

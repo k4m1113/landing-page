@@ -19,38 +19,37 @@
 @import "monokai";
 
 body#main {
-  font-family: 'monospace';
+  font-family: 'sans-serif';
   padding-top: 60px;
   background-color: white;
-  background-attachment: fixed;
-  position: relative;
 }
 
 .green {
   color: $light-green;
 }
 
-.parallax-window {
-	min-height: 500px;
-	background: transparent;
-}
 
 img {
   max-width: 100%;
 }
 
-li.nav-icon {
-  @extend .nav-item;
-  padding: 0px 8px;
-}
-
 button.tag {
   @extend .btn;
-  padding: 2px 4px;
-  background-color: $light-green;
+  padding: 4px !important;
+  background-color: #eeeeee ;
   color: $dark-light-green;
   cursor: default;
   &:hover {
     cursor: default;
   }
+}
+#intro {
+  height: 100vh;
+}
+
+
+#doings {
+  position: relative;
+  height: calc(100vh - 80px);
+    overflow: auto;
 }
