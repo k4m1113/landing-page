@@ -32,17 +32,46 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#mainNav ul li a[href^='#']").on('click', function(e) {
-   e.preventDefault()
+     e.preventDefault()
 
-   var href = $(this).attr("href");
-   var hash = href.substr(href.indexOf("#"));
-   $('html, body').animate({
-       scrollTop: $(hash).offset().top - 60
-     }, 250, function(){
+     var href = $(this).attr("href");
+     var hash = href.substr(href.indexOf("#"));
+     $("a").removeClass("active");
+     $(this).addClass("active");
+     var target = href + "-header",
+     t = $(target).offset().top - 60;
+
+     $('html, body').animate({
+       scrollTop: t
+     }, 250, function() {
        window.location.hash = hash;
      })
+    })
 
-})
-  })
+    $(window).scroll(function() {
+      var scrollPos = $(window).scrollTop();
+
+      var portfolioTrigger = $("#portfolio").offset().top;
+      var educationTrigger = $("#education").offset().top;
+      var portfolioHeader = $("a[href='#portfolio']");
+      var educationHeader = $("a[href='#education']");
+
+      if (scrollPos >= portfolioTrigger && scrollPos < educationTrigger) {
+        portfolioHeader.addClass("active");
+        educationHeader.removeClass("active");
+      } else {
+        portfolioHeader.removeClass("active");
+      }
+
+      if (scrollPos >= educationTrigger) {
+        educationHeader.addClass("active");
+        portfolioHeader.removeClass("active");
+      } else {
+        educationHeader.removeClass("active");
+      }
+      });
+      console.log("portfolioTrigger ", portfolioTrigger);
+      console.log("educationTrigger", educationTrigger);
+    })
 </script>
 </html>

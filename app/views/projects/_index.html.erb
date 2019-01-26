@@ -1,4 +1,8 @@
-<div id="portfolio">
+<span id="portfolio">
+Portfolio
+  </span>
+
+<div id="portfolio-header">
 <% @projects.each do |project| %>
   <%= render 'projects/project', project: project %>
 <% end %>

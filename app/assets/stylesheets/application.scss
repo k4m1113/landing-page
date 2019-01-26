@@ -41,8 +41,13 @@ img {
 
 #doings {
   padding: 0px 120px;
-  position: relative;
-  height: calc(100vh - 85px);
-  overflow: auto;
-  color: $turkish-sea;
+  color: black;
+}
+
+#school-header, #education-header {
+  font-color: $living-coral;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
 }
