@@ -22,7 +22,7 @@
 body#main {
   font-family: 'Montserrat', sans-serif;
   font-weight:400;
-  background-color: white !important;
+  background-color: rgba(255, 111, 97, 0.3) !important;
 
 }
 
@@ -31,23 +31,20 @@ img {
   max-width: 100%;
 }
 
-
-#intro {
-  background-color: $turkish-sea;
-  color: white;
-  height: 100vh;
-}
-
-
 #doings {
   padding: 0px 120px;
   color: black;
 }
 
-#school-header, #education-header {
-  font-color: $living-coral;
-  font-size: 20px;
+#portfolio-header, #education-header {
+  color: $living-coral;
+  font-size: 28px;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
+}
+
+h4 {
+  font-weight: bolder;
 }

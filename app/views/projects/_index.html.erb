@@ -1,9 +1,3 @@
-<span id="portfolio">
-Portfolio
-  </span>
-
-<div id="portfolio-header">
-<% @projects.each do |project| %>
-  <%= render 'projects/project', project: project %>
+<% @projects.each_with_index do |project, i| %>
+  <%= render 'projects/project', project: project, i: i %>
 <% end %>
-</div>

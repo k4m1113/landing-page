@@ -3,12 +3,12 @@ require 'date'
 osu = School.create!(
   name: 'Oregon State University',
   url: 'http://oregonstate.edu/',
-  screenshot: 'osu',
+  screenshot: 'beav.png',
   location: 'Corvallis, OR (remote)',
-  degree: 'B.S., Computer Science',
+  degree: 'coursework towards B.S., Computer Science',
   start_date: Date.parse('February 2018'),
-  end_date: Date.parse('August 2019'),
-  summary: 'Full-time pursuit of a B.S. in Computer Science with coursework in data structures and algorithms, web development, CS fundamentals, operating systems, software engineering, and computer networking including group work and projects.'
+  end_date: Date.parse('December 2018'),
+  summary: 'Full-time pursuit of a B.S. in Computer Science with coursework in data structures and algorithms, web development, CS fundamentals, operating systems, and computer architecture including group work and projects.'
 )
 
 osu.subject_list.add('Computer Science, C, Data Structures, Algorithms', parse: true)
@@ -18,7 +18,7 @@ osu.save
 cal = School.create!(
   name: 'University of California, Berkeley',
   url: 'https://www.berkeley.edu',
-  screenshot: 'cal',
+  screenshot: 'oski.png',
   location: 'Berkeley, CA',
   degree: 'B.A., Classical Civilizations',
   start_date: Date.parse('August 2012'),
@@ -32,7 +32,7 @@ cal.save
 butte = School.create!(
   name: 'Butte Community College',
   location: 'Oroville, CA',
-  screenshot: 'butte',
+  screenshot: 'roadrunner.jpg',
   url: 'https://www.butte.edu',
   degree: 'Transfer Degree',
   start_date: Date.parse('January 2011'),
@@ -46,9 +46,9 @@ butte.save
 csuc = School.create!(
   name: 'California State University, Chico',
   location: 'Chico, CA',
-  screenshot: 'csuc',
+  screenshot: 'wildcat.png',
   url: 'https://www.csuchico.edu',
-  degree: 'none',
+  degree: 'Concurrent Enrollment in High School',
   start_date: Date.parse('January 2009'),
   end_date: Date.parse('July 2011'),
   summary: "I started studying at CSU Chico while concurrently enrolled as a junior in high school. I continued studying various subjects there off and on as-needed through high school and into community college."
@@ -57,12 +57,49 @@ csuc.subject_list.add('Calculus, German, Women\'s Studies', parse: true)
 csuc.honor_list.add('High School Scholars Program', parse: true)
 csuc.save
 
+
+cpotts = Project.create!(
+  name: 'Tony\'s Electonics Emporium',
+  url: 'https://github.com/kamillamagna/caractacus-potts',
+  deployment: 'http://caractacus-potts.herokuapp.com',
+  screenshot: 'cs340.png',
+  when: Date.parse('December 2018'),
+  description: 'MySQL/Node application for selling junk.',
+  project_type: 'school'
+)
+cpotts.keyword_list.add('node, mysql, api, ajax, javascript, sql', 'group', parse: true)
+cpotts.save
+
+metpro = Project.create!(
+  name: 'React-ify Metpro Assessment',
+  url: 'https://github.com/kamillamagna',
+  deployment: 'https://github.com/kamillamagna',
+  screenshot: 'metpro.png',
+  when: Date.parse('August 2018'),
+  description: 'Conversion of Metpro\'s body type assessment from HTML/jQuery to React.js and Redux',
+  project_type: 'contract'
+)
+metpro.keyword_list.add('react, redux, html, javascript, ui', 'group', parse: true)
+metpro.save
+
+paideiafication = Project.create!(
+  name: 'Paideia Institute Style Guide',
+  url: 'https://github.com/kamillamagna',
+  deployment: 'https://github.com/kamillamagna',
+  screenshot: 'paideiafication.png',
+  when: Date.parse('March 2018'),
+  description: 'Styling Paideia Institute\'s Teachable page to match their Nationbuilder website, leading to creation of the Paideia Institute Style Guide',
+  project_type: 'contract'
+)
+paideiafication.keyword_list.add('html, css, ui, branding', 'group', parse: true)
+paideiafication.save
+
 opca = Project.create!(
   name: 'Online Public Classics Archive',
   url: 'https://github.com/kamillamagna/classics-archive',
   deployment: 'http://opca.paideiainstitute.org/articles',
-  screenshot: 'opca',
-  when: Date.parse('May 2017'),
+  screenshot: 'opca.png',
+  when: Date.parse('January 2018'),
   description: 'searchable repository for modern scholarship about the classics built in conjunction with the Paideia Institute and Eidolon',
   project_type: 'professional'
 )
@@ -81,23 +118,11 @@ nmf = Project.create!(
 nmf.keyword_list.add('ruby, rails, webpack, javascript, jquery, postgresql, file attachment', parse: true)
 nmf.save
 
-krns = Project.create!(
-  name: "Kamille\'s Ratchet Nail Salon",
-  url: 'https://github.com/kamillamagna/ratchet-nail-salon',
-  deployment: 'https://krns.herokuapp.com/',
-  screenshot: 'krns',
-  when: Date.parse('November 2016'),
-  description: 'A website for collecting, sorting, filtering and matching all the nail colors in my collection. To be implemented with a web scraping feature.',
-  project_type: 'hobby'
-)
-krns.keyword_list.add('ruby, rails, api, tdd, javascript, postgresql, authentication, authorization', parse: true)
-krns.save
-
 urbanite = Project.create!(
   name: 'Urbanite',
   url: 'https://github.com/nwalberts/urbanite',
   deployment: 'https://github.com/nwalberts/urbanite',
-  screenshot: 'urbanite',
+  screenshot: 'urbanite.png',
   when: Date.parse('April 2016'),
   description: 'The most epic city review app ever',
   project_type: 'professional'
@@ -109,7 +134,7 @@ dihtfapsl = Project.create!(
   name: 'Do I Have Time for a Pumpkin Spice Latte?',
   url: 'https://github.com/kamillamagna/DIHTFAPSL',
   deployment: 'https://kamilleski.github.io/',
-  screenshot: 'dihtfapsl',
+  screenshot: 'dihtfapsl.jpg',
   when: Date.parse('June 2015'),
   description: "Asking the most existential question of my fellow basic bitches: Do I Have Time for a Pumpkin Spice Latte?",
   project_type: 'hobby'
@@ -121,7 +146,7 @@ latin = Project.create!(
   name: 'Latin Lover',
   url: 'https://github.com/kamillamagna/Latin-Lover',
   deployment: 'https://github.com/kamillamagna/Latin-Lover',
-  screenshot: 'latin_lover',
+  screenshot: 'latinlover.jpg',
   when: Date.parse('March 2016'),
   description: 'Submit a word in English and see its translation in various Romance languages all at once.',
   project_type: 'hobby'
@@ -133,7 +158,7 @@ campusverus = Project.create!(
   name: 'Campus Verus',
   url: 'https://github.com/kamillamagna/Campus-Verus',
   deployment: 'https://campus-verus.herokuapp.com/',
-  screenshot: 'campus_verus',
+  screenshot: 'campusverus.jpg',
   when: Date.parse('May 2017'),
   description: 'Making the world a better place one college tour at a time.',
   project_type: 'professional'
@@ -145,7 +170,7 @@ launch = Project.create!(
   name: 'Launch Academy Challenges',
   url: 'https://github.com/kamillamagna/launch-academy-challenges',
   deployment: 'https://github.com/kamillamagna/launch-academy-challenges',
-  screenshot: 'launch',
+  screenshot: 'launch.jpg',
   when: Date.parse('April 2017'),
   description: 'Ignition and Onsite Challenges for Launch Academy',
   project_type: 'professional'

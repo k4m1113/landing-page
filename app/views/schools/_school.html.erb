@@ -1,35 +1,35 @@
-<div class="school">
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="/seals/<%= school.screenshot %>.png" class="screenshot" />
-    </div>
-    <div class="col-sm-8">
-      <h4 class="school-header">
-        <a href="<%= school.url %>" target="_blank" title="<%= school.name %> school homepage">
+<div class="school grid-item"
+
+  <a href="<%= school.url %>" target="_blank">
+    <% if (i == 0) %>
+      <div class="card card-inverse gram">
+    <% else %>
+      <div class="card card-inverse gram" id="education-header">
+    <% end %>
+      <img class="card-img" src="/seals/<%= school.screenshot %>" />
+      <div class="card-img-overlay">
+        <h5 class="card-title">
           <%= school.name %>
-          <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-        </a>
-      </h4>
-      <h6>
-        <%= "#{school.start_date.strftime("%B %Y")} to #{school.end_date.strftime("%B %Y")}" %>
-      </h6>
-      <p>
-        <%= school.summary %>
-      </p>
-      <p>
-        <strong>
-          Subjects:
-        </strong>
-        <%= school.subject_list %><br />
-        <strong>
-          Honors:
-        </strong>
-        <%= school.honor_list %><br />
-        <strong>
-          Degree:
-        </strong>
-        <%= school.degree %>
-      </p>
+        </h5>
+        <h6 class="card-subtitle">
+          <%= school.degree %>
+
+        </h6>
+        <p class="card-text">
+          <%= "#{school.start_date.strftime("%B %Y")} to #{school.end_date.strftime("%B %Y")}" %>
+        </p>
+        <p class="card-text">
+          <%= school.summary %>
+          <i>
+            Subjects:
+          </i>
+          <%= school.subject_list %><br />
+          <i>
+            Honors:
+          </i>
+          <%= school.honor_list %><br />
+        </p>
+      </div>
     </div>
-  </div>
+  </a>
 </div>

@@ -17,7 +17,10 @@
     <% if !current_page?(controller: "homes", action: "show") %>
       <body id="main">
         <%= render 'layouts/navbar' %>
-          <div id="doings">
+          <div id="doings-grid">
+            <div class="grid-sizer"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item grid-item--width2"></div>
             <%= render 'projects/index', projects: @projects %>
             <%= render 'schools/index', schools: @schools %>
           </div>
@@ -49,10 +52,10 @@
     })
 
     $(window).scroll(function() {
-      var scrollPos = $(window).scrollTop();
+      var scrollPos = $(window).scrollTop() + ($(window).height() / 2);
 
-      var portfolioTrigger = $("#portfolio").offset().top;
-      var educationTrigger = $("#education").offset().top;
+      var portfolioTrigger = $("#portfolio-header").offset().top;
+      var educationTrigger = $("#education-header").offset().top;
       var portfolioHeader = $("a[href='#portfolio']");
       var educationHeader = $("a[href='#education']");
 
@@ -70,8 +73,12 @@
         educationHeader.removeClass("active");
       }
       });
-      console.log("portfolioTrigger ", portfolioTrigger);
-      console.log("educationTrigger", educationTrigger);
+
+      setTimeout( function() {
+        var $grid = $('#doings-grid').masonry({
+          itemSelector: '.grid-item'
+        });
+      }, 100);
     })
 </script>
 </html>

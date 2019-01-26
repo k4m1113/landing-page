@@ -1,36 +1,38 @@
-<div class="project">
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="/screenshots/<%= project.screenshot %>.jpg" class="screenshot" />
-    </div>
-    <div class="col-sm-8">
-      <h4 class="project-header">
-        <a href="<%= project.url %>" target="_blank" title="view code on github">
+<div class="project grid-item">
+  <a href="<%= project.url %>" target="_blank" title="view code on github">
+    <% if (i == 0) %>
+      <div class="card card-inverse gram">
+    <% else %>
+      <div class="card card-inverse gram" id="portfolio-header">
+    <% end %>
+      <img class="card-img" src="/screenshots/<%= project.screenshot %>" />
+      <div class="card-img-overlay">
+        <h5 class="card-title">
           <%= project.name %> (<%= project.project_type %>)
           <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
-      </h4>
-      <h6>
-        <%= project.when.strftime("%B %Y") %>
-      </h6>
-      <p>
-        <% if project.description.include? "\n" %>
-          <% bullets = project.description.split("\n").reject(&:empty?) %>
-          <ul>
-            <% bullets.each do |b| %>
-              <li>
-                <%= b %>
-              </li>
-            <% end %>
-          </ul>
-        <% else %>
-          <%= project.description %>
-        <% end %>
-        <br />
-        <% project.keywords.each do |tag| %>
-          <button class="tag" type="button" disabled><%= tag %></button>
-        <% end %>
-      </p>
+        </h5>
+        <h6 class="card-subtitle">
+          <%= project.when.strftime("%B %Y") %>
+        </h6>
+        <p class="card-text">
+          <% if project.description.include? "\n" %>
+            <% bullets = project.description.split("\n").reject(&:empty?) %>
+            <ul>
+              <% bullets.each do |b| %>
+                <li>
+                  <%= b %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <%= project.description %>
+          <% end %>
+          <br />
+          <% project.keywords.each do |tag| %>
+            <button class="tag" type="button" disabled><%= tag %></button>
+          <% end %>
+        </p>
+      </div>
     </div>
-  </div>
+  </a>
 </div>

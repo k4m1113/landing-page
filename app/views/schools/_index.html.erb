@@ -1,16 +1,8 @@
-<span id="education">
-  Education
-</span>
-
-<nav id="education-header" class="navbar navbar-expand-xs">
-  <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Education</a>
-    </div>
-  </div>
-</nav>
-<div >
-  <% @schools.each do |school| %>
-    <%= render 'schools/school', school: school %>
+  <% @schools.each_with_index do |school, i| %>
+    <%= render 'schools/school', school: school, i: i %>
   <% end %>
-</div>
+
+
+<script>
+
+</script>
